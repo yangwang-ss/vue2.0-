@@ -1,0 +1,95 @@
+.fleft {
+	float: left;
+}
+
+.fright {
+	float: right;
+}
+.h4{
+	color: #5688DE;
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 16px;
+}
+.active {
+	color: #fff !important;
+	background: #108DE9;
+}
+
+input {
+	border-radius: 5px;
+	border: 1px solid #F0F0F0;
+	padding: 5px 20px !important;
+	font-size: 14px !important;
+}
+
+.flex {
+	display: flex;
+	display: -ms-flexbox;
+	align-items: center;
+	justify-content: space-around;
+}
+
+
+/* 弹窗居中 */
+
+.vertical-center-modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.vertical-center-modal .ivu-modal {
+	top: 0;
+}
+
+:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #999;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #999;
+	opacity: 1;
+}
+
+input:-ms-input-placeholder {
+	color: #999;
+	opacity: 1;
+}
+
+input::-webkit-input-placeholder {
+	color: #999;
+	opacity: 1;
+}
+
+
+/* 弹窗背景统一为白色 */
+
+.ivu-modal-content,
+.ivu-modal-body {
+	background-color: #fff !important;
+}
+
+
+/* 弹窗header */
+
+.modal-header {
+	overflow: hidden;
+	border-bottom: 1px solid #ebebeb;
+	margin: 0 -18px;
+	padding: 0 18px 16px 18px;
+}
+
+.modal-header .modal-header-title {
+	font-size: 16px;
+	color: #666;
+	float: left;
+}
+
+.modal-header .modal-header-close {
+	cursor: pointer;
+	float: right;
+}

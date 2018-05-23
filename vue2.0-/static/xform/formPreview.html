@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>表单预览页面</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <link rel="stylesheet" href="css/formEngine.css">
+    <link rel="stylesheet" href="../UtryUI/newui/css/utryui.all.css">
+    <style>
+        .ut-formEngine-out{
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+<!--接受消息页面标记（未保存退出时提示） -->
+<div class="ut-formEngine-out">
+    <div class="ut-formEngine-content-center-wrap">
+        <div class="ut-formEngine-do">
+            <button id='preview' class='utry-button'>预览表单</button>
+        </div>
+      <div class="ut-formEngine-content-wrap">
+      <form class="utry-form">
+      </form>
+      </div>
+    </div>
+</div>
+
+<script src="../UtryUI/newui/js/vendor/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="js/vendor/jquery-1.8.2.min.js"></script>-->
+<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<!--<script type="text/javascript" src="js/jquery-ui.js"></script>-->
+<script type="text/javascript">
+    (function(window){
+        var url = location.search;
+        var requests = {};
+        var size = 0;
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            size = strs.length;
+            for ( var i = 0; i < size; i++) {
+                requests[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        strs = str = url = undefined;
+        window.requests = {
+            getParameter : function (name) {
+                return requests[name];
+            },
+            getAllParameters : function () {
+                return requests;
+            },
+            size : function () {
+                return size;
+            }
+        };
+    }(window));
+//    localStorage.getItem("token");
+    var params = requests.getAllParameters();
+    $(window.body).append("<div id='xformdesign_" + params['metaDataId'] + "'></div>");
+//    window.accessToken = sessionStorage.getItem("token");
+    window.api = (params['api']);
+    window.xformToken = (params['xformToken']);
+    $.ajaxSetup({
+        headers: {
+            "xformToken": xformToken
+        }
+    })
+    $.ajax({
+        url: api + "/form/design/" + params['metaDataId'],
+        type: "GET",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            data = data.data;
+            console.log(data);
+            window.operate = data.operate;
+            window.formMetadata = data.formMetadata;
+            window.originalJson = data.originalJson;
+            window.jsUrl = data.jsUrl;
+            window.jsContent = data.jsContent;
+        }
+    });
+</script>
+<!--<script src="../UtryUI/newui/js/utryui.all.js"></script>-->
+<script src="../UtryUI/newui/js/utryui.all.min.js" type="text/javascript" charset="utf-8"></script>
+<!--<script type="text/javascript" src="xform/js/zclip/jquery.zclip.min.js"></script>-->
+<script type="text/javascript" src="js/clipboard.js"></script>
+<script type="text/javascript" src="js/formengine.js"></script>
+
+<script type="text/javascript" src="js/jquery.htmlClean.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        //初始化表单设计器
+        engineGlobal.initForm();
+        //注册页面关闭检查
+        engineGlobal.saveCheck();
+        $("#preview").click();
+        renderLayout($('.ut-container'));
+    });
+
+    //自定义栅格系统渲染
+    function renderLayout(containers) {
+      $.each(containers, function (index, val) {
+        var columns = $(val).children('div[class^="ut-col-"]');
+        var unitNum = 0;
+        $.each(columns, function (index, el) {
+          var splitClass = $(el).attr("class").split("-");
+          unitNum += parseInt(splitClass[splitClass.length - 1]);
+        });
+        var eachWidth = 100 / unitNum;
+        $.each(columns, function (index, el) {
+          var splitClass = $(el).attr("class").split("-");
+          var eachNum = parseInt(splitClass[splitClass.length - 1]);
+          $(el).css('width', eachWidth * eachNum + '%');
+        });
+      });
+    }
+</script>
+<script type="text/template" id="FormCodeWindow">
+    <span style="font-size:15px"><xmp id='formHtml'></xmp></span>
+</script>
+</body>
+</html>

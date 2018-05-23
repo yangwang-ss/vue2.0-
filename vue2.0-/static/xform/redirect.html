@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    (function(window){
+      var url = location.search;
+      var requests = {};
+      var size = 0;
+      if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        var strs = str.split("&");
+        size = strs.length;
+        for ( var i = 0; i < size; i++) {
+          requests[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+      }
+      strs = str = url = undefined;
+      window.requests = {
+        getParameter : function (name) {
+          return requests[name];
+        },
+        getAllParameters : function () {
+          return requests;
+        },
+        size : function () {
+          return size;
+        }
+      };
+    }(window));
+    let params = requests.getAllParameters();
+    let token = localStorage.getItem("token");
+    let siteCode = params["siteCode"];
+    let formCode = params["formCode"];
+    let api = params["api"];
+    let url = api + "/api/formHtml/getBySitecodeAndFormcode/" + siteCode + "/" + formCode + "?accessToken=" + token;
+    let frameHtml = "<iframe style='width: 100%;height: 100%' src='" + url + "'></iframe>"
+    document.body.innerHTML = frameHtml;
+  </script>
+</body>
+</html>

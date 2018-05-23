@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Insert title here</title>
+  <script src="js/vendor/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <link rel="stylesheet" href="../UtryUI/newui/css/utryui.all.css">
+  <link rel="stylesheet" href="css/formEngine.css">
+  <script src="../UtryUI/newui/js/utryui.all.js"></script>
+
+<body>
+<div id="formHtml"
+     style="width: 80%; border: #ddd solid 1px; margin: 0 auto;"></div>
+<div style="margin: 0 auto;">
+  <div id="operatBtn" style="padding-left: 20px; padding-top: 20px">
+    <button type="button" onclick="returnBtn();">返回按钮</button>
+    <button type="button" style="margin-left: 10px" id="resetbtn">重置按钮</button>
+    <button type="button" style="margin-left: 10px" id="sumbitbtn">提交按钮</button>
+    <button type="button" style="margin-left: 10px" id="echobtn">数据回显</button>
+    <button type="button" style="margin-left: 10px" id="delbtn">数据删除</button>
+    <button type="button" style="margin-left: 10px" id="updatebtn">数据更新</button>
+  </div>
+</div>
+<div>
+  <input type="hidden" id="formDataId" />
+</div>
+<script>
+  (function(window){
+    var url = location.search;
+    var requests = {};
+    var size = 0;
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      var strs = str.split("&");
+      size = strs.length;
+      for ( var i = 0; i < size; i++) {
+        requests[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+      }
+    }
+    strs = str = url = undefined;
+    window.requests = {
+      getParameter : function (name) {
+        return requests[name];
+      },
+      getAllParameters : function () {
+        return requests;
+      },
+      size : function () {
+        return size;
+      }
+    };
+  }(window));
+  let params = requests.getAllParameters();
+  window.api = params['api'];
+  $(window.body).append("<div id='xformdesign_" + params['metaDataId'] + "'></div>");
+  window.accessToken = sessionStorage.getItem("token");
+
+  $.ajaxSetup({
+    headers: {
+      "accessToken": accessToken
+    }
+  })
+  $.ajax({
+    url: api + "/manage/testData/" + params['metaDataId'],
+    type: "GET",
+    dataType: "json",
+    async: false,
+    success: function (data) {
+      data = data;
+      window.sites = data.sites;
+      window.formMetadata = data.formMetadata;
+    }
+  });
+</script>
+<script type="text/javascript" src="js/formengine.js"></script>
+<script>
+  $(function(){
+    var data = {formCode:formMetadata.formCode,siteCode:formMetadata.siteCode};
+    var $form = $("#formHtml").xformRender({
+      data:data,
+      rendered:function($form){
+      }
+    });
+
+    $("#sumbitbtn").click(function(){
+      $("#formDataId").val("");
+      $("#formHtml").xformSubmit({
+        onSuccess:function(data){
+          $("#formDataId").val(data.formDataId);
+        }
+      });
+    });
+
+    $("#resetbtn").click(function(){
+      utry.get($form.attr("id")).reset();
+      //实现上传控件的重置。
+      $("[name='DeleteChangeFile']").trigger('click');
+      $("[name='DeleteFile']").trigger('click');
+      $(".ut-form-row-fileupload").find("[type='text']").val('');
+    });
+
+    $("#echobtn").click(function(){
+      var dataId = $("#formDataId").val();
+
+      if(!dataId){
+        alert("请先提交数据");
+        return;
+      }
+      var params = $.extend({},data);
+      params.dataId = dataId;
+      $("#formHtml").xformEcho({
+        data:params
+      });
+    });
+
+    $("#delbtn").click(function(){
+      var dataId = $("#formDataId").val();
+
+      if(!dataId){
+        alert("请先提交数据");
+        return;
+      }
+      var params = $.extend({},data);
+      params.dataId = dataId;
+      $("#formHtml").xformDel({
+        data:params
+      });
+
+    });
+
+    $("#updatebtn").click(function(){
+      var dataId = $("#formDataId").val();
+
+      if(!dataId){
+        alert("请先提交数据");
+        return;
+      }
+      var params = {};
+      params.formdataid = dataId;
+      $("#formHtml").xformUpdate({
+        params:params
+      });
+
+    });
+
+  });
+</script>
+
+</html>

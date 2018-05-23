@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>表单设计页面</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="css/formEngine.css">
+    <link rel="stylesheet" href="../UtryUI/newui/css/utryui.all.css">
+</head>
+
+<body>
+<!--接受消息页面标记（未保存退出时提示） -->
+<div id='xformdesign_${metaDataId}'></div>
+<div class="ut-formEngine-out">
+    <div class="ut-formEngine-slide-wrap">
+        <div class="ut-formEngine-slide ut-formEngine-slide-widget">
+            <div>
+                <div class="utry-tabs" data-options="height:'300px'">
+                    <div data-options="title:'字段控件'">
+                        <div class="ut-left-block">
+                            <!--<div class="ut-widget-sample" widgetType="button">-->
+                                <!--<div class="ut-preview">-->
+                                    <!--<span class="icon_button form_icon"></span>-->
+                                    <!--<span>按钮</span>-->
+                                <!--</div>-->
+                                <!--<div class="ut-view"></div>-->
+                            <!--</div>-->
+                            <div class="ut-widget-sample" widgetType="text">
+                                <div class="ut-preview">
+                                    <span class="icon_input form_icon"></span>
+                                    <span>输入框</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="select">
+                                <div class="ut-preview">
+                                    <span class="icon_select form_icon"></span>
+                                    <span>下拉框</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="checkgroup">
+                                <div class="ut-preview">
+                                    <span class="icon_checkgroup form_icon"></span>
+                                    <span>多选框</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="radiogroup">
+                                <div class="ut-preview">
+                                    <span class="icon_radiogroup form_icon"></span>
+                                    <span>单选框</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="date">
+                                <div class="ut-preview">
+                                    <span class="icon_date form_icon"></span>
+                                    <span>日期</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="datetime">
+                                <div class="ut-preview">
+                                    <span class="icon_datetime form_icon"></span>
+                                    <span>日期时间</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="textarea">
+                                <div class="ut-preview">
+                                    <span class="icon_textarea form_icon"></span>
+                                    <span>文本域</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="placeholder">
+                                <div class="ut-preview">
+                                    <span class="icon_placeholder form_icon"></span>
+                                    <span>占位符</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="fileupload">
+                                <div class="ut-preview">
+                                    <span class="icon_fileupload form_icon"></span>
+                                    <span>文件上传</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="statictext">
+                                <div class="ut-preview">
+                                    <span class="icon_statictext form_icon"></span>
+                                    <span>静态文本</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-widget-sample" widgetType="line">
+                                <div class="ut-preview">
+                                    <span class="icon_line form_icon"></span>
+                                    <span>分割线</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <!--<div class="ut-widget-sample" widgetType="hiddenfields">
+                                <div class="ut-preview">
+                                    <span class="icon_hiddenfields form_icon"></span>
+                                    <span>隐藏域</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>-->
+                            <div class="ut-widget-sample" widgetType="parameter">
+                                <div class="ut-preview">
+                                    <span class="icon_parameter form_icon"></span>
+                                    <span>基础参数</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                          <div class="ut-widget-sample" widgetType="img">
+                                <div class="ut-preview">
+                                    <span class="icon_img form_icon"></span>
+                                    <span>图片展示</span>
+                                </div>
+                                <div class="ut-view"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ut-formEngine-view-attr">
+                <div class="utry-tabs">
+                    <div data-options="title:'布局控件'">
+                        <div class="ut-left-block">
+                            <div class="ut-layout-sample" layoutType="col1">
+                                <div class="ut-preview">
+                                    <span class="icon_col1 form_icon"></span>
+                                    <span>一栏</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-layout-sample" layoutType="col2">
+                                <div class="ut-preview">
+                                    <span class="icon_col2 form_icon"></span>
+                                    <span>两栏</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-layout-sample" layoutType="col3">
+                                <div class="ut-preview">
+                                    <span class="icon_col3 form_icon"></span>
+                                    <span>三栏</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-layout-sample" layoutType="col4">
+                                <div class="ut-preview">
+                                    <span class="icon_col4 form_icon"></span>
+                                    <span>四栏</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-layout-sample" layoutType="col2-10">
+                                <div class="ut-preview">
+                                    <span class="icon_col2_10 form_icon"></span>
+                                    <span>2-10列</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-layout-sample" layoutType="tabs">
+                                <div class="ut-preview">
+                                    <span class="icon_tab form_icon"></span>
+                                    <span>tab</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                            <div class="ut-layout-sample" layoutType="panel">
+                                <div class="ut-preview">
+                                    <span class="icon_panel form_icon"></span>
+                                    <span>panel</span>
+                                </div>
+                                <div class="ut-view"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ut-formEngine-content-center-wrap">
+        <div class="ut-formEngine-do">
+            <!--<button class='utry-button ut-form-code'>获取源码</button>-->
+            <button id='ut-form-preview' class='utry-button'>预览表单</button>
+            <button class='utry-button ut-primary ut-form-save'>保存表单</button>
+        </div>
+    <div class="ut-formEngine-content-wrap">
+    <form class="utry-form">
+    </form>
+    </div>
+
+    </div>
+    <div class="ut-formEngine-property-wrap">
+        <div class="ut-formEngine-slide ut-formEngine-slide-attr">
+            <div class="ut-left-head">控件设置</div>
+            <div class="ut-formEngine-attr">
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="js/vendor/jquery-1.8.2.min.js"></script>-->
+<script src="../UtryUI/newui/js/vendor/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!--<script type="text/javascript" src="js/jquery-ui.js"></script>-->
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    (function(window){
+        var url = location.search;
+        var requests = {};
+        var size = 0;
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            size = strs.length;
+            for ( var i = 0; i < size; i++) {
+                requests[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        strs = str = url = undefined;
+        window.requests = {
+            getParameter : function (name) {
+                return requests[name];
+            },
+            getAllParameters : function () {
+                return requests;
+            },
+            size : function () {
+                return size;
+            }
+        };
+    }(window));
+    let params = requests.getAllParameters();
+    window.api = (params['api'] );
+    $(window.body).append("<div id='xformdesign_" + params['metaDataId'] + "'></div>");
+    window.xformToken = (params['xformToken']);
+
+    $.ajaxSetup({
+        headers: {
+            "xformToken": xformToken
+        }
+    })
+    $.ajax({
+        url: api + "/form/design/" + params['metaDataId']+"?xformToken="+xformToken,
+        type: "GET",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            data = data.data;
+            window.operate = data.operate;
+            window.formMetadata = data.formMetadata;
+            window.originalJson = data.originalJson;
+            let jsAttr = data.formMetadata.attributes;
+            jsAttr = JSON.parse(jsAttr);
+            if (jsAttr) {
+              window.jsUrl = jsAttr.jsUrl;
+              window.jsContent = jsAttr.jsContent;
+            }
+        }
+    });
+</script>
+<script src="../UtryUI/newui/js/utryui.all.min.js"></script>
+<!--<script type="text/javascript" src="xform/js/zclip/jquery.zclip.min.js"></script>-->
+<script type="text/javascript" src="js/clipboard.js"></script>
+<script type="text/javascript" src="js/formengine.js"></script>
+<script type="text/javascript" src="js/jquery.htmlClean.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        //初始化表单设计器
+        engineGlobal.initForm();
+        //注册页面关闭检查
+        engineGlobal.saveCheck();
+    });
+</script>
+<script type="text/template" id="FormCodeWindow">
+    <span style="font-size:15px"><xmp id='formHtml'></xmp></span>
+</script>
+
+<script type="text/javascript">
+
+  function limitInput(inputElement){
+    if(inputElement.value>256){
+      inputElement.value = 256;
+    }
+  }
+
+  //心跳, 设计器页面维持登陆
+
+//  window.loginHeartbeat = setInterval(() => $.ajax({
+//    url: api + "/form/heartbeat"
+//  }), 60000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+.fileLists {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .preNoWap{
+            white-space: nowrap;
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    
+    i {
+        color: #E9E9E9;
+    }
+    
+    .main-content {
+        padding-bottom: 25px;
+    }
+    
+    .table-content {
+        margin-top: 10px;
+    }
+    
+    .check-more {
+        position: relative;
+        * {
+            vertical-align: middle;
+        }
+        span {
+            color: #108EE9;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+    
+    .searchAddresetting {
+        width: 250px;
+        display: inline-block;
+        margin-left: 357px;
+        .smallBtn2 {
+            margin: 0 10px;
+        }
+    }
+    
+    .span {
+        display: inline-block;
+        text-align: center;
+    }
+    
+    .Dialog {
+        .bouncesHeader {
+            display: flex;
+            display: -ms-flexbox;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            line-height: 1;
+            padding: 0 15px;
+            border-bottom: 1px solid #d8d8d8;
+            margin-bottom:50px;
+            span {
+                float: left;
+                display: inline-block;
+                width: 50%;
+            }
+            span:nth-of-type(2) {
+                text-align: right;
+                i {
+                    cursor: pointer;
+                }
+            }
+        }
+        ;
+        .bounces-item {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 10px;
+            position: relative;
+            
+            .middleV {
+                * {
+                    vertical-align: middle;
+                }
+            }
+            &.item-name {
+                margin-top: 10px;
+            }
+            &.item-names {
+                margin-top: 15px;
+                padding-bottom: 5px !important;
+                margin-left: 11px;
+            }
+            .in_left {
+                margin-left: 10px;
+            }
+            .information-xs {
+                display: inline-block;
+                width: 90px;
+                vertical-align: top;
+                text-align: right;
+                font-size: 12px !important;
+            }
+            .fileSpan {
+                vertical-align: top;
+            }
+            .x {
+                position: relative;
+                left: 17px;
+            }
+            #bouncesSelect {
+                text-align: left;
+                &.ivu-select-single .ivu-select-selection {
+                    width: 120px;
+                }
+            }
+            
+            .choose-file {
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                width: 88px;
+                height: 88px;
+                background-color: #f2f2f2;
+                color: #888;
+                border-radius: 3px;
+                border: 1px dotted #dbdbdb;
+                cursor: pointer;
+                i {
+                    font-size: 30px;
+                    color: #888;
+                }
+            }
+            .upload {
+                position: relative;
+                width: 88px;
+                height: 88px;
+            }
+            .showImag {
+                width: 88px;
+                height: 88px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: 5px;
+                img {
+                    border-radius: 5px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .fileIxt {
+                width: 146px;
+                height: 32px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: white;
+                span {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    color: #CCCCCC;
+                }
+            }
+            .logunRt {
+                display: inline-block;
+                margin-left: 96px;
+                margin-bottom: 20px;
+            }
+            .logunRt:nth-of-type(1) {
+                margin-left: 0;
+            }
+            .uploadWap {
+                display: inline-block;
+                position: relative;
+                left: 17px;
+            }
+            .proTxt {
+                display: inline-block;
+                position: relative;
+                left: 30px;
+                top: -70px;
+            }
+            .uploadFile {
+                /*padding-top: 20px;*/
+                display: inline-block;
+                width: 230px;
+                box-sizing: border-box;
+                text-align: left;
+                .uploads {
+                    position: relative;
+                }
+                a {
+                    width: 80px;
+                    line-height: 29px;
+                    border-radius: 10px;
+                    text-align: center;
+                    border: 1px solid #ccc;
+                    display: inline-block;
+                }
+                span {
+                    margin-top: 10px;
+                    color: #9fa9b2;
+                    display: block;
+                }
+            }
+            .dialogue-md {
+                width: 48px;
+                display: inline-block;
+                position: relative;
+                top: -37px;
+                span {
+                    display: inline-block;
+                    width: 17px;
+                    height: 17px;
+                    i {
+                        color: red;
+                    }
+                }
+            }
+            .generation {
+                display: inline-block;
+                background: #FF9933;
+                padding: 3px 10px;
+                font-size: 14px;
+                color: #fff;
+                border-radius: 3px;
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                right: 30px;
+            }
+            .backDialSpan {
+                margin-left: 40px;
+                color: #ccc;
+            }
+        }
+        .bounces-area {
+            text-align: center;
+            width: 100%;
+            span {
+                display: inline-block;
+                text-align: right;
+                vertical-align: top;
+                width: 90px;
+            }
+            textarea {
+                
+                width: 230px;
+            }
+        }
+        .bounces-areas {
+            text-align: center;
+            width: 100%;
+            padding-left: 53px;
+            span {
+                display: inline-block;
+                text-align: right;
+                vertical-align: top;
+                width: 90px;
+            }
+            textarea {
+                
+                width: 230px;
+            }
+        }
+    }
